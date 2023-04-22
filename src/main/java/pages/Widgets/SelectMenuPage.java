@@ -19,7 +19,6 @@ public class SelectMenuPage extends PageBase {
     }
 
     @FindBy(xpath = "//*[@id='withOptGroup']/div")
-//    @FindBy(xpath = "//*[@id=\"withOptGroup\"]/div")
     WebElement selectValueSelect;
 
     @FindBy(id = "selectMenuContainer")

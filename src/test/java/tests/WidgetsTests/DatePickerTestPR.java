@@ -22,7 +22,7 @@ public class DatePickerTestPR extends TestBasePR {
 
         System.out.println(tomorrowDate);
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy"); //паттерн
         String tomorrowDateFormatted = tomorrowDate.format(formatter);
 
         System.out.println(tomorrowDateFormatted);
@@ -32,7 +32,7 @@ public class DatePickerTestPR extends TestBasePR {
 //        String endMonthDay = page.locator("//*[@id='datePickerMonthYear']/div[2]/div[2]/div/div/div[2]/div[2]/div[6]/div[7]").getAttribute("aria-label");
 //        if (todayDay.equals(endMonthDay)) {...}
 
-//  System.out.println(todayDate.getDayOfWeek());
+//        System.out.println(todayDate.getDayOfWeek());
         String weekDay = todayDate.getDayOfWeek().toString();
 
         if (weekDay.equals("SATURDAY")) {

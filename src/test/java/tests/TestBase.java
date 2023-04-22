@@ -1,8 +1,11 @@
 package tests;
 
 
+import com.github.javafaker.Faker;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.AfterMethod;
@@ -12,6 +15,8 @@ import java.time.Duration;
 
 public class TestBase {
     public WebDriver driver;
+
+    protected Faker faker = new Faker();
 
     Logger logger = LoggerFactory.getLogger(TestBase.class);
 
@@ -29,8 +34,13 @@ public class TestBase {
 
         //driver = new ChromeDriver(options);
 
+// стр.33 -  37 добавлены  09.03.2023 вместо стр 37
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
 
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+//        driver = new ChromeDriver(); // закомментировала 09.03.2023
+//        driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get("https://demoqa.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -38,7 +48,7 @@ public class TestBase {
 
 
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown() {
         driver.quit();
     }
